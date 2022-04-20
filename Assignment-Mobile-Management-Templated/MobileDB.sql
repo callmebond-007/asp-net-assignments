@@ -1,4 +1,4 @@
-Create database MobileDB 
+Create database MobileDB
 go
 --drop database MobileDB
 --Using Database
@@ -80,7 +80,7 @@ go
 Alter procedure sp_ViewAllMobiles
 as 
 begin
-select Id, [Name], [Description], Price, Manufactures from Mobile
+select Id, [Name], [Description], Price, Manufacturer from Mobile
 end
 go 
 exec sp_ViewAllMobiles
