@@ -16,6 +16,7 @@ namespace Assignment_Mobile_Management_Templated
 
             if (!IsPostBack)
             {
+                LoadManufacturers();
                 ResetForm();
             }
 
@@ -29,6 +30,7 @@ namespace Assignment_Mobile_Management_Templated
                 mobile.Name = txtName.Text;
                 mobile.Description = txtDescription.Text;
                 mobile.Price = Convert.ToInt32(txtPrice.Text);
+                mobile.Manufacturer = ddlManufacturers.SelectedValue;
                 MobileRepository mobileRepository = new MobileRepository();
                 mobileRepository.AddMobile(mobile);
                 ResetForm();
@@ -42,6 +44,16 @@ namespace Assignment_Mobile_Management_Templated
             txtDescription.Text = string.Empty;
             txtPrice.Text = string.Empty;
         }
+        private void LoadManufacturers()
+        {
+            ManufacturerRepository manufacturerRepository = new ManufacturerRepository();
+            var manufacturerList = manufacturerRepository.GetManufacturer();
+            ddlManufacturers.DataSource = manufacturerList;
+            ddlManufacturers.DataTextField = "ManufacturedBy";
+            ddlManufacturers.DataValueField = "ManufacturedBy";
+            ddlManufacturers.DataBind();
+        }
+
 
     }
 }

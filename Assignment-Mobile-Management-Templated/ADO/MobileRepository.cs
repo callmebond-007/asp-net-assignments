@@ -1,4 +1,4 @@
-﻿using Assignment_Mobile_Management_Templated.Models
+﻿using Assignment_Mobile_Management_Templated.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,10 +26,12 @@ namespace Assignment_Mobile_Management_Templated.ADO
                     SqlParameter paramName = new SqlParameter { ParameterName = "@name", SqlDbType = SqlDbType.VarChar, Value = mobile.Name };
                     SqlParameter paramDescription = new SqlParameter { ParameterName = "@description", SqlDbType = SqlDbType.VarChar, Value = mobile.Description };
                     SqlParameter paramPrice = new SqlParameter { ParameterName = "@price", SqlDbType = SqlDbType.VarChar, Value = mobile.Price };
+                    SqlParameter paramManufacturer = new SqlParameter { ParameterName = "@manufacturedBy", SqlDbType = SqlDbType.VarChar, Value = mobile.Manufacturer };
 
                     command.Parameters.Add(paramName);
                     command.Parameters.Add(paramDescription);
                     command.Parameters.Add(paramPrice);
+                    command.Parameters.Add(paramManufacturer);
 
                     command.ExecuteNonQuery();
 
@@ -60,6 +62,7 @@ namespace Assignment_Mobile_Management_Templated.ADO
                         mobile.Name = Convert.ToString(reader["Name"]);
                         mobile.Description = Convert.ToString(reader["Description"]);
                         mobile.Price = Convert.ToInt32(reader["Price"]);
+                        mobile.Manufacturer = Convert.ToString(reader["Manufacturer"]);
                         mobileList.Add(mobile);
                     }
                 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddMobile.aspx.cs" Inherits="Assignment_Mobile_Management_Templated.AddMobile" MasterPageFile ="~/Site.Master" %> 
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddMobile.aspx.cs" Inherits="Assignment_Mobile_Management_Templated.AddMobile" MasterPageFile ="~/Site.Master" %>
 
  <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
      <br />
@@ -20,8 +20,15 @@
        <asp:RequiredFieldValidator runat="server" ID="rqfvtxtPrice" ControlToValidate="txtPrice" ErrorMessage ="Price is mandatory" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />
+     <asp:Label ID="lblManufacturer" runat="server" Text="Manufacturer"></asp:Label>
+     <br />
+    <asp:DropDownList ID="ddlManufacturers" runat="server"></asp:DropDownList>
+    <br />
+     <br />
+
             <asp:Label ID="lblAddMobile" runat="server" Text="Label"></asp:Label>
             <br />
             <asp:Button ID="btnAddMobile" runat="server" OnClick="btnAddMobile_Click" Text="Add Mobile" />
 
 </asp:Content>
+
